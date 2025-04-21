@@ -23,3 +23,27 @@ export const radio = [
     link: '/radiozurnal.html',
   },
 ];
+
+
+export const renderStation = (i) => {  //vytváříme funkci renderStation, parametr index umožňuje funkci vědět, kterou stanici rádií z datového pole má použít
+  document.querySelector("main").innerHTML += ` 
+  <div>         
+  <h1>${radio[i].name }</h1>
+  <p>${radio[i].frequency}</p>
+  <p>${radio[i].description}</p>
+  </div>
+  `;
+  }
+
+  //v souboru vytvořte funkci renderNavigation
+  //pomocí které vykreslíte do hlavičky stránky navigaci s odkazy na jednotlivé stanice. Použijte k tomu funkci forEach.
+  
+
+  export const renderNavigation = () => {    //funkce renderNavigation, slovo export umožňuje, aby byla funkce dostupná i v jiných souborech
+    // Pro každou stanici vytvoříme odkaz a přidáme ho do seznamu
+    radio.forEach((stanice) => {
+      document.querySelector("header").innerHTML +=
+     `<a href="${stanice.link}">${stanice.name}</a>`;
+  });
+    }
+  
